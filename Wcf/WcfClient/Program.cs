@@ -10,6 +10,8 @@ namespace WcfClient
     {
         static async Task Main()
         {
+            Random random = new Random();  
+            
             List<Task> workerTasks = Enumerable.Range(0, 10).Select((i) =>
             {
                 return Task.Run(() =>
@@ -17,11 +19,12 @@ namespace WcfClient
                     Thread.Sleep((i + 1) * 1000);
                     Worker worker = WorkerFactory.CallFactory(i);
 
-                    // Simulate worker stop
+                    // Simulate worker stopping its' work
                     Task.Run(() =>
                     {
-                        Thread.Sleep((int)Math.Pow(i + 2, 3) * 1000); 
-                        worker.StopWorking();
+                        Console.WriteLine($"[Worker {i}] Worker will simulate shutdown by terminating thread.");
+                        Thread.Sleep((int)Math.Pow(i + 2, 3) * 1000);
+                        worker?.StopWork();
                     });
 
                     worker?.DoWork();

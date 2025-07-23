@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using WcfClient.ServiceReference;
@@ -11,12 +12,12 @@ namespace WcfClient
 {
     internal class Worker : IServiceCallback
     {
-        private WorkerState _state = WorkerState.Standby;
         private readonly ServiceClient _serviceClient;
-
         private readonly int _workerId;
+        private WorkerState _state = WorkerState.Standby;
 
-        private readonly System.Timers.Timer _timer;
+        public readonly System.Timers.Timer Timer;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
         public Worker(int workerId)
         {
@@ -31,32 +32,52 @@ namespace WcfClient
 
             _serviceClient = new ServiceClient(instanceContext, binding, endpoint);
 
-            _timer = new System.Timers.Timer(5000);
-            _timer.Elapsed += (sender, e) =>
+            Timer = new System.Timers.Timer(5000);
+            Timer.Elapsed += (sender, e) =>
             {
                 _serviceClient.SendHeartbeat(_workerId);
             };
-            _timer.AutoReset = true;
-            _timer.Start();
+            Timer.AutoReset = true;
+            Timer.Start();
         }
 
         public void DoWork()
         {
-            while(_state != WorkerState.Dead)
+            CancellationToken cancellationToken = _cancellationTokenSource.Token;
+            try
             {
-                if(_state == WorkerState.Active)
+                while(!cancellationToken.IsCancellationRequested && _state != WorkerState.Dead)
                 {
-                    Console.WriteLine($"[Worker {_workerId}] Working... {DateTime.UtcNow}");
-                    System.Threading.Thread.Sleep(5000);
+                    if(_state == WorkerState.Active)
+                    {
+                        Console.WriteLine($"[Worker {_workerId}] Working... {DateTime.UtcNow}");
+                        Thread.Sleep(5000);
+
+                        cancellationToken.ThrowIfCancellationRequested();
+                    }
+                    else
+                    {
+                        Thread.Sleep(500);
+                    }
                 }
             }
-
-            Console.WriteLine($"[Worker {_workerId}] dead! Shutting down...");
+            catch (OperationCanceledException)
+            {
+                Console.WriteLine($"[Worker {_workerId}] Received cancellation token. Worker is being stopped gracefully.");
+            }
+            finally
+            {
+                Timer.Stop();
+                Timer.Dispose();
+                _serviceClient.Close();
+                _cancellationTokenSource.Dispose();
+                Console.WriteLine($"[Worker {_workerId}] dead! Shutting down...");
+            }
         }
 
-        public void StopWorking()
+        public void StopWork()
         {
-            _timer.Stop();
+            _cancellationTokenSource.Cancel();
         }
 
         public Message Register()

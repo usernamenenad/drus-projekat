@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{969F7032-249C-4317-B8DD-E2082E797632}|WcfService\\WcfService.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfservice\\service.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{969F7032-249C-4317-B8DD-E2082E797632}|WcfService\\WcfService.csproj|solutionrelative:wcfservice\\service.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\workerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\workerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,34 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Program.cs",
-              "RelativeDocumentMoniker": "WcfClient\\Program.cs",
-              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Program.cs",
-              "RelativeToolTip": "WcfClient\\Program.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAowBkAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T21:41:08.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WorkerFactory.cs",
-              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\WorkerFactory.cs",
-              "RelativeDocumentMoniker": "WcfClient\\WorkerFactory.cs",
-              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\WorkerFactory.cs",
-              "RelativeToolTip": "WcfClient\\WorkerFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T21:41:05.98Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -62,22 +28,22 @@
               "RelativeDocumentMoniker": "WcfClient\\Worker.cs",
               "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Worker.cs",
               "RelativeToolTip": "WcfClient\\Worker.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwD4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T21:39:50.798Z",
+              "WhenOpened": "2025-07-23T23:01:44.527Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Service.svc.cs",
-              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfService\\Service.svc.cs",
-              "RelativeDocumentMoniker": "WcfService\\Service.svc.cs",
-              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfService\\Service.svc.cs",
-              "RelativeToolTip": "WcfService\\Service.svc.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAQwHEAAAAJAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Program.cs",
+              "RelativeDocumentMoniker": "WcfClient\\Program.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Program.cs",
+              "RelativeToolTip": "WcfClient\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAxwB8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T21:28:41.339Z",
+              "WhenOpened": "2025-07-23T21:41:08.011Z",
               "EditorCaption": ""
             }
           ]

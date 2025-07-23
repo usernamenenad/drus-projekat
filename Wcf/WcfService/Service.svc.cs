@@ -53,6 +53,12 @@ namespace WcfService
                 };
             }
 
+            Console.WriteLine($"[Service] Worker {registrationWorkerId} was already registred!");
+            if (CheckIfShouldConsiderDead(registrationWorkerId))
+            {
+                ChangeWorkerState(registrationWorkerId, WorkerState.Dead);
+            }
+
             return new Message()
             {
                 Status = MessageStatus.Error,
@@ -62,10 +68,15 @@ namespace WcfService
 
         public void SendHeartbeat(int workerId)
         {
-            if(_workerInfo.TryGetValue(workerId, out var workerInfo))
+            if (!CheckIfShouldConsiderDead(workerId))
             {
-                workerInfo.LastHeartbeat = DateTime.UtcNow;
+                Console.WriteLine($"[Service] Received heartbeat signal from alive worker {workerId}.");
+                _workerInfo[workerId].LastHeartbeat = DateTime.UtcNow;
+                return;
             }
+
+            Console.WriteLine($"[Service] Received heartbeat signal from worker {workerId} that should be considered dead!");
+            ChangeWorkerState(workerId, WorkerState.Dead);
         }
 
         private void CheckIfAnyDead(object sender, ElapsedEventArgs e)
@@ -75,7 +86,11 @@ namespace WcfService
                 if(CheckIfShouldConsiderDead(workerInfo.Key))
                 {
                     ChangeWorkerState(workerInfo.Key, WorkerState.Dead);
-                    Console.WriteLine($"[Service] Worker {workerInfo.Key} dead! Trying to replace it with {ReplaceDeadWorker()}...");
+                    int replacerId = ReplaceDeadWorker();
+                    if(replacerId != -1)
+                    {
+                        Console.WriteLine($"[Service] Worker {workerInfo.Key} dead! Trying to replace it with {replacerId}...");
+                    }
                 }
             }
         }
@@ -84,10 +99,6 @@ namespace WcfService
         {
             if (_workerInfo.TryGetValue(workerId, out var workerInfo))
             {
-                if(workerInfo.State == WorkerState.Dead)
-                {
-                    return false; // Already dead, skip it.
-                }
                 return DateTime.UtcNow - workerInfo.LastHeartbeat > TimeSpan.FromSeconds(15);
             }
 
@@ -107,7 +118,15 @@ namespace WcfService
         private void ChangeWorkerState(int workerId, WorkerState newState)
         {
             _workerInfo[workerId].State = newState;
-            _workerInfo[workerId].Callback.ChangeWorkerState(newState);
+
+            try
+            {
+                _workerInfo[workerId].Callback.ChangeWorkerState(newState);
+            }
+            catch (Exception)
+            {
+                // Worker is shutted down and not alive.   
+            }
         }
 
         private int ReplaceDeadWorker()
