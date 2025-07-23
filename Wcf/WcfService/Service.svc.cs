@@ -19,25 +19,34 @@ namespace WcfService
 
         public Service()
         {
-            _timer = new System.Timers.Timer(5000);
+            _timer = new System.Timers.Timer(1000);
             _timer.Elapsed += CheckIfAnyDead;
             _timer.AutoReset = true;
 
             _timer.Start();
+            Console.WriteLine("[Service] Service started!");
         }
 
         public Message Register(int registrationWorkerId)
         {
-            int currentActiveWorkers = GetActiveWorkers().Count();
+            Console.WriteLine($"[Service] Took request from {registrationWorkerId}!");
+
             var newWorkerInfo = new WorkerInfo()
             {
-                State = currentActiveWorkers + 1 < 6 ? WorkerState.Active : WorkerState.Standby,
+                State = WorkerState.Standby,
                 LastHeartbeat = DateTime.UtcNow,
                 Callback = OperationContext.Current.GetCallbackChannel<ICallback>(),
             };
 
             if (_workerInfo.TryAdd(registrationWorkerId, newWorkerInfo))
             {
+                if(GetActiveWorkers().Count + 1 < 6)
+                {
+                    ChangeWorkerState(registrationWorkerId, WorkerState.Active);
+                }
+
+                Console.WriteLine($"[Service] Added worker {registrationWorkerId} with state {newWorkerInfo.State}");
+                
                 return new Message()
                 {
                     Status = MessageStatus.Ok
@@ -66,7 +75,7 @@ namespace WcfService
                 if(CheckIfShouldConsiderDead(workerInfo.Key))
                 {
                     ChangeWorkerState(workerInfo.Key, WorkerState.Dead);
-                    ReplaceDeadWorker();
+                    Console.WriteLine($"[Service] Worker {workerInfo.Key} dead! Trying to replace it with {ReplaceDeadWorker()}...");
                 }
             }
         }
@@ -75,10 +84,14 @@ namespace WcfService
         {
             if (_workerInfo.TryGetValue(workerId, out var workerInfo))
             {
+                if(workerInfo.State == WorkerState.Dead)
+                {
+                    return false; // Already dead, skip it.
+                }
                 return DateTime.UtcNow - workerInfo.LastHeartbeat > TimeSpan.FromSeconds(15);
             }
 
-            return true;
+            return false; // Not registred at all, skip it.
         }
 
         private List<KeyValuePair<int, WorkerInfo>> GetActiveWorkers()
@@ -88,7 +101,7 @@ namespace WcfService
 
         private List<KeyValuePair<int, WorkerInfo>> GetStandbyWorkers()
         {
-            return _workerInfo.Where((kv) => kv.Value.State == WorkerState.Active).ToList();
+            return _workerInfo.Where((kv) => kv.Value.State == WorkerState.Standby).ToList();
         }
 
         private void ChangeWorkerState(int workerId, WorkerState newState)
@@ -97,7 +110,7 @@ namespace WcfService
             _workerInfo[workerId].Callback.ChangeWorkerState(newState);
         }
 
-        private void ReplaceDeadWorker()
+        private int ReplaceDeadWorker()
         {
             List<KeyValuePair<int, WorkerInfo>> possibleReplacerWorkers = GetStandbyWorkers();
             if(possibleReplacerWorkers.Count > 0)
@@ -105,7 +118,11 @@ namespace WcfService
                 int randomIndex = _random.Next(possibleReplacerWorkers.Count);
                 int randomWorkerId = possibleReplacerWorkers[randomIndex].Key;
                 ChangeWorkerState(randomWorkerId, WorkerState.Active);
+
+                return randomWorkerId;
             }
+
+            return -1;
         }
     }
 }

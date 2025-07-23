@@ -1,0 +1,8 @@
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\bin\Debug\WcfClient.exe.config
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\bin\Debug\WcfClient.exe
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\bin\Debug\WcfClient.pdb
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\obj\Debug\WcfClient.csproj.AssemblyReference.cache
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\obj\Debug\WcfClient.csproj.CoreCompileInputs.cache
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\obj\Debug\WcfClient.exe
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\obj\Debug\WcfClient.pdb
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfClient\obj\Debug\WcfClient.exe.config
