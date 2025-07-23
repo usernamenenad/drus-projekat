@@ -1,0 +1,12 @@
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\bin\Debug\WcfHost.exe.config
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\bin\Debug\WcfHost.exe
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\bin\Debug\WcfHost.pdb
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\bin\Debug\WcfService.dll
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\bin\Debug\WcfService.pdb
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\bin\Debug\WcfService.dll.config
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\obj\Debug\WcfHost.csproj.AssemblyReference.cache
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\obj\Debug\WcfHost.csproj.CoreCompileInputs.cache
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\obj\Debug\WcfHost.csproj.Up2Date
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\obj\Debug\WcfHost.exe
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\obj\Debug\WcfHost.pdb
+C:\Users\Nenad\Desktop\drus-projekat\Wcf\WcfHost\obj\Debug\WcfHost.exe.config
