@@ -132,6 +132,9 @@ namespace WcfClient.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/ChangeWorkerState")]
         void ChangeWorkerState(WcfClient.ServiceReference.WorkerState newState);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/ShutdownWorker")]
+        void ShutdownWorker();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

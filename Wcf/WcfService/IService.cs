@@ -63,6 +63,9 @@ namespace WcfService
     {
         [OperationContract(IsOneWay = true)]
         void ChangeWorkerState(WorkerState newState);
+
+        [OperationContract(IsOneWay = true)]
+        void ShutdownWorker();
     }
 
     [ServiceContract(CallbackContract = typeof(ICallback), SessionMode = SessionMode.Required)]

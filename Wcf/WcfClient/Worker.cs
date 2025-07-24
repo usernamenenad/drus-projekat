@@ -16,12 +16,18 @@ namespace WcfClient
         private readonly int _workerId;
         private WorkerState _state = WorkerState.Standby;
 
-        public readonly System.Timers.Timer Timer;
+        private readonly System.Timers.Timer _timer;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
+        public readonly Logger Logger;
+
+        private const int HEARTBEAT_SENDING_INTERVAL = 5000;
+        private const int WORKING_INTERVAL = 5000;
 
         public Worker(int workerId)
         {
             _workerId = workerId;
+            Logger = new Logger();
 
             var instanceContext = new InstanceContext(this);
             var binding = new WSDualHttpBinding()
@@ -32,13 +38,15 @@ namespace WcfClient
 
             _serviceClient = new ServiceClient(instanceContext, binding, endpoint);
 
-            Timer = new System.Timers.Timer(5000);
-            Timer.Elapsed += (sender, e) =>
+            _timer = new System.Timers.Timer()
+            {
+                Interval = HEARTBEAT_SENDING_INTERVAL,
+                AutoReset = true,
+            };
+            _timer.Elapsed += (sender, e) =>
             {
                 _serviceClient.SendHeartbeat(_workerId);
             };
-            Timer.AutoReset = true;
-            Timer.Start();
         }
 
         public void DoWork()
@@ -46,32 +54,42 @@ namespace WcfClient
             CancellationToken cancellationToken = _cancellationTokenSource.Token;
             try
             {
-                while(!cancellationToken.IsCancellationRequested && _state != WorkerState.Dead)
+                while(!cancellationToken.IsCancellationRequested)
                 {
                     if(_state == WorkerState.Active)
                     {
-                        Console.WriteLine($"[Worker {_workerId}] Working... {DateTime.UtcNow}");
-                        Thread.Sleep(5000);
+                        // If stopped sending heartbeat
+                        if(!_timer.Enabled)
+                        {
+                            while(!_timer.Enabled)
+                            {
+                                cancellationToken.ThrowIfCancellationRequested();
+                                Thread.Sleep(500);
+                            }
+
+                            cancellationToken.ThrowIfCancellationRequested();
+                            Thread.Sleep(500);
+                        }
+
+                        Logger.Log($"[Worker {_workerId}] Working... {DateTime.UtcNow}");
+                        Thread.Sleep(WORKING_INTERVAL);
 
                         cancellationToken.ThrowIfCancellationRequested();
-                    }
-                    else
-                    {
                         Thread.Sleep(500);
+                        continue;
                     }
                 }
             }
             catch (OperationCanceledException)
             {
-                Console.WriteLine($"[Worker {_workerId}] Received cancellation token. Worker is being stopped gracefully.");
+                Logger.Log($"[Worker {_workerId}] Received cancellation token. Worker is being stopped gracefully.");
             }
             finally
             {
-                Timer.Stop();
-                Timer.Dispose();
-                _serviceClient.Close();
+                StopSendingHeartbeat();
+                _timer.Dispose();
                 _cancellationTokenSource.Dispose();
-                Console.WriteLine($"[Worker {_workerId}] dead! Shutting down...");
+                Logger.Log($"[Worker {_workerId}] Worker is dead! Shutting down...");
             }
         }
 
@@ -89,5 +107,23 @@ namespace WcfClient
         {
             _state = newState;
         }
+
+        public void ShutdownWorker()
+        {
+            StopWork();
+        }
+
+        public void StartSendingHeartbeat()
+        {
+            Logger.Log($"[Worker {_workerId}] Started sending heartbeat signal.");
+            _timer.Start();
+        }
+
+        public void StopSendingHeartbeat()
+        {
+            Logger.Log($"[Worker {_workerId}] Stopped sending heartbeat signal.");
+            _timer.Stop();
+        }
+
     }
 }

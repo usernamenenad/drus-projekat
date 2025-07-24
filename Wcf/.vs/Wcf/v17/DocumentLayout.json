@@ -1,12 +1,139 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{969F7032-249C-4317-B8DD-E2082E797632}|WcfService\\WcfService.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfservice\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{969F7032-249C-4317-B8DD-E2082E797632}|WcfService\\WcfService.csproj|solutionrelative:wcfservice\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{969F7032-249C-4317-B8DD-E2082E797632}|WcfService\\WcfService.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfservice\\service.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{969F7032-249C-4317-B8DD-E2082E797632}|WcfService\\WcfService.csproj|solutionrelative:wcfservice\\service.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfclient\\workerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEB0EAF7-BDE2-4546-B6E2-0B797B81D10C}|WcfClient\\WcfClient.csproj|solutionrelative:wcfclient\\workerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA1C0D43-ECA0-48D4-B472-F4DC3F5D570C}|WcfHost\\WcfHost.csproj|c:\\users\\nenad\\desktop\\drus-projekat\\wcf\\wcfhost\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA1C0D43-ECA0-48D4-B472-F4DC3F5D570C}|WcfHost\\WcfHost.csproj|solutionrelative:wcfhost\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfHost\\Program.cs",
+              "RelativeDocumentMoniker": "WcfHost\\Program.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfHost\\Program.cs",
+              "RelativeToolTip": "WcfHost\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T12:17:24.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Logger.cs",
+              "RelativeDocumentMoniker": "WcfClient\\Logger.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Logger.cs",
+              "RelativeToolTip": "WcfClient\\Logger.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAUwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T11:43:48.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorkerFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\WorkerFactory.cs",
+              "RelativeDocumentMoniker": "WcfClient\\WorkerFactory.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\WorkerFactory.cs",
+              "RelativeToolTip": "WcfClient\\WorkerFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T11:40:01.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IService.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfService\\IService.cs",
+              "RelativeDocumentMoniker": "WcfService\\IService.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfService\\IService.cs",
+              "RelativeToolTip": "WcfService\\IService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T11:29:06.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Program.cs",
+              "RelativeDocumentMoniker": "WcfClient\\Program.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Program.cs",
+              "RelativeToolTip": "WcfClient\\Program.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAAC8AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T10:59:21.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Worker.cs",
+              "RelativeDocumentMoniker": "WcfClient\\Worker.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfClient\\Worker.cs",
+              "RelativeToolTip": "WcfClient\\Worker.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAywFoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T10:57:00.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Service.svc.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfService\\Service.svc.cs",
+              "RelativeDocumentMoniker": "WcfService\\Service.svc.cs",
+              "ToolTip": "C:\\Users\\Nenad\\Desktop\\drus-projekat\\Wcf\\WcfService\\Service.svc.cs",
+              "RelativeToolTip": "WcfService\\Service.svc.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAUwHYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T10:56:42.69Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

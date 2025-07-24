@@ -11,7 +11,8 @@ namespace WcfClient
             Worker newWorker = new Worker(workerId);
             if(newWorker.Register().Status == MessageStatus.Ok)
             {
-                Console.WriteLine($"[Worker {workerId}] Worker registred!");
+                newWorker.Logger.Log($"[Worker {workerId}] Worker registred!");
+                newWorker.StartSendingHeartbeat();
                 return newWorker;
             }
 

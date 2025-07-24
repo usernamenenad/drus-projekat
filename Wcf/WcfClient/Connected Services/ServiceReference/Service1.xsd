@@ -34,4 +34,9 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ShutdownWorker">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
